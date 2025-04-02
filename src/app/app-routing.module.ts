@@ -6,6 +6,7 @@ import { VideoComponent } from './modules/video/video.component';
 import { PanelComponent } from './modules/panel/panel.component';
 import { BusquedaComponent } from './modules/video/busqueda/busqueda.component';
 import { AuthGuard } from './auth.guard';
+import { FavoriteComponent } from './modules/video/favorite/favorite.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard] },
   { path: 'panel/video', component: VideoComponent, canActivate: [AuthGuard] },
   { path: 'panel/video/search', component: BusquedaComponent, canActivate: [AuthGuard] },
+  { path: 'panel/video/favorite', component: FavoriteComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

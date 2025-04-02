@@ -47,8 +47,14 @@
                                         number }}</span></p>
                                 <p class="card-text text-muted fs-6">Publicado: <span class="text-dark">{{
                                         video.uploadedAt }}</span></p>
+                                <div class="mt-auto text-center">
+                                    <button class="btn btn-outline-primary" (click)="addToFavorites(video)">
+                                        <i class="bx bx-star" style="font-size: 14px;"></i> Favorito
+                                    </button>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

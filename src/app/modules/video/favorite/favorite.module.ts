@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PanelModule } from '../panel/panel.module';
-import { VideoComponent } from './video.component';
-import { FavoriteComponent } from './favorite/favorite.component';
+import { PanelModule } from '../../panel/panel.module';
+import { FavoriteComponent } from './favorite.component';
 
 @NgModule({
   declarations: [
-    VideoComponent,
+    FavoriteComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +19,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
     PanelModule
   ],
   exports: [
-    VideoComponent,
+    FavoriteComponent
   ]
 })
-export class VideoModule { }
+export class FavoriteModule { }
