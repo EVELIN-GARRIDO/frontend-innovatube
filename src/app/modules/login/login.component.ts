@@ -62,7 +62,7 @@ export class LoginComponent {
 
           sessionStorage.setItem('token', response.token);
 
-          this.router.navigate(['/login']);
+          this.router.navigate(['/panel']);
 
         } else {
           Swal.fire({

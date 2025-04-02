@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterModule } from './modules/register/register/register.module';
-import { LoginModule } from './modules/login/login/login.module';
+import { RegisterModule } from './modules/register/register.module';
+import { LoginModule } from './modules/login/login.module';
+import { VideoModule } from './modules/video/video.module';
+import { BusquedaModule } from './modules/video/busqueda/busqueda.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { LoginModule } from './modules/login/login/login.module';
     AppRoutingModule,
     RegisterModule,
     LoginModule,
+    VideoModule,
+    BusquedaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

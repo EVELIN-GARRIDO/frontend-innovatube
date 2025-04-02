@@ -1,0 +1,24 @@
+<body>
+    <div class="d-flex">
+        <div class="sidebar">
+            <div class="logo-details">
+                <img height="40" class="icon" alt="">
+                <div class="logo_name">InnovaTube</div>
+                <i class="bx bx-menu" id="btn"></i>
+            </div>
+            <ul class="nav-list">
+                <li [routerLinkActive]="'active'">
+                    <a [routerLink]="['/panel/video']">
+                        <i class="bx bx-play"></i>
+                        <span class="links_name">Videos</span>
+                    </a>
+                    <span class="tooltip">Videos</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark border-bottom" style="background: #f0f0f0;height: 60px;">
+        </nav>
+    </div>
+</body>

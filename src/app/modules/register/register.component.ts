@@ -97,7 +97,7 @@ export class RegisterComponent {
         (error) => {
           Swal.fire({
             html: `<p class="custom-title" style="margin-bottom: 0rem"><b>${error.message}</b></p>`,
-            icon: 'success',
+            icon: 'info',
             confirmButtonColor: '#d33',
             confirmButtonText: 'Aceptar',
             customClass: {
