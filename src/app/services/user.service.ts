@@ -11,16 +11,15 @@ import { UserI } from '../interfaces/user';
 export class UserService {
   private apiUrl = `${environment.url_base}/users`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   registerUser(userData: UserI): Observable<any> {
     let httpOptions = {
       headers: new HttpHeaders({
-        'accept': 'text/plain',
         'Content-Type': 'application/json'
       })
     }
-    const url = `${this.apiUrl}/register-user`; 
+    const url = `${this.apiUrl}/register-user`;
     return this.http.post<any>(url, userData, httpOptions);
   }
 }

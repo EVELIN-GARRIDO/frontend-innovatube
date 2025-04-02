@@ -16,19 +16,33 @@
                             </span>
                         </a>
                     </div>
-                    <form class="px-4 pt-2 pb-4">
+                    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="px-4 pt-2 pb-4">
+                        <div class="btn-group d-flex mb-3" role="group">
+                            <input type="radio" class="btn-check" name="loginType" id="emailLogin" autocomplete="off"
+                                (change)="useEmail=true" checked>
+                            <label class="btn btn-outline-primary" style="font-weight: 600"
+                                for="emailLogin">Correo</label>
+                            <input type="radio" class="btn-check" name="loginType" id="userLogin" autocomplete="off"
+                                (change)="useEmail=false">
+                            <label class="btn btn-outline-primary" style="font-weight: 600"
+                                for="userLogin">Usuario</label>
+                        </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" formControlName="email" placeholder="Correo"
-                                id="correo" />
-                            <i class="bx bxs-envelope login"></i>
+                            <input type="text" class="form-control"
+                                [placeholder]="useEmail ? 'Correo' : 'Nombre de usuario'"
+                                formControlName="usernameOrEmail" id="usernameOrEmail" />
+                            <i class="bx" [ngClass]="useEmail ? 'bxs-envelope' : 'bxs-user'"></i>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" formControlName="password"
                                 placeholder="Contraseña" id="password" />
                             <i class="bx bxs-key login"></i>
                         </div>
+                        <div *ngIf="isFormSubmitted && loginForm.invalid" class="alert alert-danger p-1 text-center">
+                            ¡Todos los campos deben de completarse!
+                        </div>
                         <div>
-                            <input type="submit" value="Iniciar sesión" style="width: 100%;" />
+                            <input type="submit" value="Iniciar Sesión" style="width: 100%;" />
                         </div>
                     </form>
                 </div>

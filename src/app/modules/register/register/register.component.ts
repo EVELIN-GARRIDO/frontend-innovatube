@@ -80,6 +80,7 @@ export class RegisterComponent {
               },
             });
             this.router.navigate(['/login']);
+
           } else {
             Swal.fire({
               html: `<p class="custom-title" style="margin-bottom: 0rem"><b>${response.message}</b></p>`,
@@ -95,8 +96,14 @@ export class RegisterComponent {
         },
         (error) => {
           Swal.fire({
-            html: `<p class="custom-title">${error.message}</p>`,
+            html: `<p class="custom-title" style="margin-bottom: 0rem"><b>${error.message}</b></p>`,
+            icon: 'success',
+            confirmButtonColor: '#d33',
             confirmButtonText: 'Aceptar',
+            customClass: {
+              popup: 'popup-handle animate__animated animate__pulse',
+              icon: 'custom-icon-size',
+            },
           });
         }
       );
