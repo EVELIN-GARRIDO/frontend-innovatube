@@ -10,13 +10,13 @@
                                 <h2 class="inactive underlineHover">Iniciar Sesión</h2>
                             </span>
                         </a>
-                        <a routerLink="../registro" target="_self">
+                        <a routerLink="../register" target="_self">
                             <span>
                                 <h2 class="active">Registrarse</h2>
                             </span>
                         </a>
                     </div>
-                    <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="px-4 py-4">
+                    <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="px-4 pt-2 pb-4">
                         <div class="form-group">
                             <input type="text" class="form-control" formControlName="firstName" placeholder="Nombre"
                                 id="firstName" />
@@ -54,6 +54,8 @@
                         </div>
                         <div *ngIf="isFormSubmitted && registerForm.invalid" class="alert alert-danger p-1 text-center">
                             ¡Todos los campos deben de completarse!
+                        </div>
+                        <div id="recaptcha-container" class="d-flex justify-content-center align-items-center mb-3">
                         </div>
                         <div>
                             <input type="submit" value="Registrarse" style="width: 100%;" />

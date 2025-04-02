@@ -5,7 +5,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
 }
 
 .hero-section {
@@ -101,7 +100,6 @@ input[type="reset"]:active {
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 8px;
   font-size: 14px;
   border-radius: 5px;
   margin-top: 5px;
@@ -117,7 +115,7 @@ input[type="reset"]:active {
 .form-group .bx {
   position: absolute;
   right: 15px;
-  top: 12px;
+  top: 9px;
   color: #cccccc;
 }
 
@@ -143,6 +141,25 @@ input[type="reset"]:active {
     padding: 10px 20px;
     font-size: 12px;
   }
+}
+
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 4px;
+  background-color: white;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: white;
+}
+
+.underlineHover:hover:after {
+  width: 100%;
 }
 
 .custom-title {

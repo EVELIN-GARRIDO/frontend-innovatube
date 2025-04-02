@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
+declare var grecaptcha: any;
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,6 +14,7 @@ import Swal from 'sweetalert2';
 export class RegisterComponent {
   registerForm!: FormGroup;
   isFormSubmitted: boolean = false; 
+  recaptchaToken: string = "";
 
   constructor(
     private router: Router,
@@ -27,6 +30,23 @@ export class RegisterComponent {
     return password === confirmPassword ? null : { passwordsDontMatch: true };
   }
 
+  ngAfterViewInit() {
+    this.loadRecaptcha();
+  }
+
+  loadRecaptcha() {
+    setTimeout(() => {
+      grecaptcha.render('recaptcha-container', {
+        sitekey: '6Lc_CQcrAAAAAK697voJJoKL8cIHuqSdEg_NyWJH',
+        callback: (response: string) => this.resolvedCaptcha(response),
+      });
+    }, 500);
+  }
+
+  resolvedCaptcha(token: string) {
+    this.recaptchaToken = token;
+  }
+
   registerUser(): void {
     this.isFormSubmitted = true; 
 
@@ -36,9 +56,10 @@ export class RegisterComponent {
       username: this.registerForm.get('username')?.value,
       email: this.registerForm.get('email')?.value,
       password: this.registerForm.get('password')?.value,
+      recaptchaToken: this.recaptchaToken,
     };
 
-    if (this.isFormSubmitted === true && this.registerForm.invalid) {
+    if (this.isFormSubmitted === true && this.registerForm.invalid || !this.recaptchaToken) {
       setTimeout(() => {
         this.isFormSubmitted = false; 
       }, 3000);

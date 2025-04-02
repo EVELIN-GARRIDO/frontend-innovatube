@@ -1,1 +1,38 @@
-<p>login works!</p>
+<body>
+    <section class="hero-section hero-img" style="background-image: url(./assets/img/fondo-innovatube.jpg)">
+        <div class="container">
+            <div class="degraded"></div>
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <div class="centrado">
+                        <a routerLink="../login" target="_self">
+                            <span>
+                                <h2 class="active">Iniciar Sesión</h2>
+                            </span>
+                        </a>
+                        <a routerLink="../register" target="_self">
+                            <span>
+                                <h2 class="inactive underlineHover">Registrarse</h2>
+                            </span>
+                        </a>
+                    </div>
+                    <form class="px-4 pt-2 pb-4">
+                        <div class="form-group">
+                            <input type="email" class="form-control" formControlName="email" placeholder="Correo"
+                                id="correo" />
+                            <i class="bx bxs-envelope login"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" formControlName="password"
+                                placeholder="Contraseña" id="password" />
+                            <i class="bx bxs-key login"></i>
+                        </div>
+                        <div>
+                            <input type="submit" value="Iniciar sesión" style="width: 100%;" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
