@@ -9,13 +9,15 @@ import { environment } from '../environment/env';
 
 export class VideoService {
   private apiUrl = `${environment.url_base}/videos`;
+  private token = sessionStorage.getItem('token');
 
   constructor(private http: HttpClient) { }
 
   searchVideos(query: string): Observable<any> {
     let httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.token}`,
       }),
       params: { query } 
     };

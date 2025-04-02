@@ -5,14 +5,15 @@ import { LoginComponent } from './modules/login/login.component';
 import { VideoComponent } from './modules/video/video.component';
 import { PanelComponent } from './modules/panel/panel.component';
 import { BusquedaComponent } from './modules/video/busqueda/busqueda.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'panel', component: PanelComponent },
-  { path: 'panel/video', component: VideoComponent },
-  { path: 'panel/video/search', component: BusquedaComponent },
+  { path: 'panel', component: PanelComponent, canActivate: [AuthGuard] },
+  { path: 'panel/video', component: VideoComponent, canActivate: [AuthGuard] },
+  { path: 'panel/video/search', component: BusquedaComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

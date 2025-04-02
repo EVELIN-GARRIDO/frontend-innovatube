@@ -10,6 +10,11 @@ export class PanelComponent {
   closeBtn: HTMLElement | null;
   searchBtn: HTMLElement | null;
   linkSeleccionado = "";
+  username: string | null = ''; 
+
+  ngOnInit(): void {
+    this.username = sessionStorage.getItem('username');
+  }
 
   constructor() {
     this.sidebar = null;

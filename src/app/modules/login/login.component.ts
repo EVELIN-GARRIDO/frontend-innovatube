@@ -61,6 +61,7 @@ export class LoginComponent {
           });
 
           sessionStorage.setItem('token', response.token);
+          sessionStorage.setItem('username', response.username);
 
           this.router.navigate(['/panel']);
 
