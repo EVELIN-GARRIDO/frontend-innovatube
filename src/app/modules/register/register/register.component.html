@@ -16,51 +16,44 @@
                             </span>
                         </a>
                     </div>
-                    <form (ngSubmit)="registerUser()" class="px-4 py-4">
+                    <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="px-4 py-4">
                         <div class="form-group">
                             <input type="text" class="form-control" formControlName="firstName" placeholder="Nombre"
                                 id="firstName" />
                             <i class="bx bxs-user login"></i>
-                        </div>
-                        <div *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']"
-                            class="alert alert-danger">
-                            ¡Este campo es requerido!
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" formControlName="lastName" placeholder="Apellido"
                                 id="lastName" />
                             <i class="bx bxs-user login"></i>
                         </div>
-                        <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']"
-                            class="alert alert-danger">
-                            ¡Este campo es requerido!
-                        </div>
                         <div class="form-group">
                             <input type="text" class="form-control" formControlName="username"
                                 placeholder="Nombre de usuario" id="username" />
                             <i class="bx bxs-user login"></i>
-                        </div>
-                        <div *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['required']"
-                            class="alert alert-danger">
-                            ¡Este campo es requerido!
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" formControlName="email" placeholder="Correo"
                                 id="correo" />
                             <i class="bx bxs-envelope login"></i>
                         </div>
-                        <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']"
-                            class="alert alert-danger">
-                            ¡Este campo es requerido!
-                        </div>
                         <div class="form-group">
                             <input type="password" class="form-control" formControlName="password"
                                 placeholder="Contraseña" id="password" />
                             <i class="bx bxs-key login"></i>
                         </div>
-                        <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']"
-                            class="alert alert-danger">
-                            ¡Este campo es requerido!
+                        <div class="form-group">
+                            <input type="password" class="form-control" formControlName="confirmPassword"
+                                [readonly]="!registerForm.get('password')?.value" placeholder="Confirmar contraseña"
+                                id="confirmPassword" />
+                            <i class="bx bxs-key login"></i>
+                        </div>
+                        <div *ngIf="registerForm.hasError('passwordsDontMatch')"
+                            class="alert alert-danger p-1 text-center">
+                            ¡Las contraseñas no coinciden!
+                        </div>
+                        <div *ngIf="isFormSubmitted && registerForm.invalid" class="alert alert-danger p-1 text-center">
+                            ¡Todos los campos deben de completarse!
                         </div>
                         <div>
                             <input type="submit" value="Registrarse" style="width: 100%;" />
